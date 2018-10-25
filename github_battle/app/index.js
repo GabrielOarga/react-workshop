@@ -4,11 +4,30 @@ require('./index.css');
 
 // Separation of concerns, not of technologies
 
-class App extends React.Component {
+class ListNumbers extends React.Component {
     render() {
         return (
+            <ul>
+                {this.props.numbers
+                .filter(function(number){
+                    return number < 100
+                })
+                .map(function(number){
+                    return <li>{number}</li>
+                })}
+            </ul>
+        )
+    }
+}
+
+class App extends React.Component {
+    render() {
+        var numbers = [11,21,131];
+
+        return (
             <div>
-                Hello World!
+                <h3>Numbers:</h3>
+                <ListNumbers numbers={numbers} />
             </div>
         )
     }
