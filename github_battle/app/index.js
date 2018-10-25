@@ -1,7 +1,8 @@
 var React  = require('react');
 var ReactDOM = require('react-dom');
+require('./index.css');
 
-// Separation of concerns not of technologies
+// Separation of concerns, not of technologies
 
 class App extends React.Component {
     render() {
@@ -12,3 +13,8 @@ class App extends React.Component {
         )
     }
 }
+
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+)
