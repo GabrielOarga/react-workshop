@@ -1,7 +1,6 @@
 var React  = require('react');
 var ReactDOM = require('react-dom');
-var RTChart = require ('react-rt-chart');
-//require('./index.css');
+require('./index.css');
 
 // Separation of concerns, not of technologies
 
