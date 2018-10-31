@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start_dev_server": "webpack-dev-server --open",
     "build_release": "NODE_ENV='production' webpack",
     "build_develop": "webpack",
     "firebase_init": "firebase login && firebase init",
