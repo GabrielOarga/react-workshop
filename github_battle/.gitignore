@@ -1,10 +1,20 @@
 #MacOS
 .DS_Store
 
-#Node stuff
+#VsCode
+/.vscode
+/coverage
+
+#Firebase
+firebase-debug.log
+
+#Node & npm
 node_modules
 package-lock.json
 npm-debug.log
+
+#Yarn
+yarn.lock
 
 #Build
 dist
