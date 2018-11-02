@@ -2,32 +2,62 @@ var React  = require('react');
 var ReactDOM = require('react-dom');
 require('./index.css');
 
-// Separation of concerns, not of technologies
+var PropTypes = require('prop-types');
+const uuidv1 = require('uuid/v1');
 
-class ListNumbers extends React.Component {
+class PropTypeTest extends React.Component {
     render() {
-        return (
+        return(
+            <h3>This is a test</h3>
+        )
+    }
+}
+
+class Users extends React.Component {
+    render() {
+        return(
             <ul>
-                {this.props.numbers
-                .filter(function(number){
-                    return number < 100
+                {this.props.friends
+                .filter(function(friend){
+                    return friend[0] === 'O' || friend[0] === 'S'
                 })
-                .map(function(number){
-                    return <li>{number}</li>
+                .map(function(friend){
+                    return <li key={uuidv1()}>{friend}</li>
                 })}
             </ul>
         )
     }
 }
 
+Users.propTypes = {
+    friends: PropTypes.array.isRequired
+}
+
+PropTypeTest.propTypes = {
+    list:PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        age: PropTypes.number,
+        donor: PropTypes.bool
+    }))
+}
+
 class App extends React.Component {
     render() {
-        var numbers = [11,21,131];
+        var friends = ["Ovidiu", "Madalina", "Serban"]
 
         return (
             <div>
-                <h3>Numbers:</h3>
-                <ListNumbers numbers={numbers} />
+                <h2>Friends:</h2>
+                <Users friends={friends} />
+                <PropTypeTest
+                
+                    list={[
+                        {name: 'Bob', age: 39, donor: true},
+                        {name: 'Angel', age: 14, donor: false},
+                        {name: 'Ian', age: 63, donor: false},
+                        {name: 'Charles', age: 22, donor: true}
+                    ]}
+                />
             </div>
         )
     }
