@@ -12,9 +12,8 @@ function LanguageTab (props) {
         a context 'null' (because we already did it in the constructor)
         and a parameter 'lang'
       */
-      props.onSelect.bind(null, props.lang)
-    }
-  >
+      props.onSelect.bind(null, props.lang)}
+    >
     {props.lang}
   </li>
   )
