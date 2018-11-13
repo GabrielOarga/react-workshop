@@ -1,9 +1,49 @@
+var Link = require('react-router-dom').Link;
 var React = require('react');
+var PropTypes = require('prop-types');
+var querryString = require('query-string')
+
 var api = require('../utils/api')
-var querryString = require('query-string');
+var PlayerPreview = require('./PlayerPreview')
+
+function Profile(props) {
+  var info = props.info;
+
+  return (
+    <PlayerPreview
+      avatar={info.avatar_url}
+      username={info.login}
+    >
+      <ul className='space-list-items'>
+        {info.name && <li>{info.name}</li>}
+        {info.location && <li>{info.location}</li>}
+        {info.company && <li>{info.company}</li>}
+        <li>Followers: {info.followers}</li>
+        <li>Following: {info.following}</li>
+        <li>Public Repos: {info.public_repos}</li>
+        {info.blog && <li><a href={info.blog}>{info.blog}</a></li>}
+      </ul>
+    </PlayerPreview >
+  )
+}
+
+function Player(props) {
+  return (
+    <div>
+       <h1 className='header'>{props.label}</h1>
+       <h3 style={{textAlign: 'center'}}>Score: {props.score}</h3>
+       <Profile info={props.profile} />
+     </div>
+  )
+}
+
+Player.propTypes = {
+  label: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  profile: PropTypes.object.isRequired
+}
 
 class Results extends React.Component {
-  /*
   constructor(props) {
     super(props);
 
@@ -21,11 +61,25 @@ class Results extends React.Component {
     api.battle([
       players.playerOneName,
       players.playerTwoName
-    ]) 
-      .then(function (results) {
-        console.log(results);
-        console.log('Winner: ' + results[0].profile.username);
-        console.log('Looser: ' + results[1].profile.username);
+    ])
+      .then((results) => {
+        if (!results) {
+          return this.setState(function () {
+            return {
+              error: 'Error encountered. Users might not exist on Github',
+              loading: false
+            }
+          })
+        }
+
+        this.setState(function () {
+          return {
+            error: null,
+            winner: results[0],
+            loser: results[1],
+            loading: false
+          }
+        })
       });
   }
 
@@ -35,17 +89,31 @@ class Results extends React.Component {
     var loser = this.state.loser;
     var loading = this.state.loading;
 
-    if(loading) {
+    if (loading) {
       return <p>Loading...</p>
     }
+
+    if (error) {
+      return (
+        <div>
+          <p>{error}</p>
+          <Link to='/battle'>Reset</Link>
+        </div>
+      )
+    }
     return (
-      <div>Results</div>
-    )
-  }
-  */
-  render () {
-    return (
-      <div>RESULTS</div>
+      <div className='row'>
+        <Player
+          label='Winner'
+          score={winner.score}
+          profile={winner.profile}
+        />
+        <Player
+          label='Loser'
+          score={loser.score}
+          profile={loser.profile}
+        />
+      </div>
     )
   }
 }
