@@ -3,6 +3,7 @@ var api = require('../utils/api')
 var querryString = require('query-string');
 
 class Results extends React.Component {
+  /*
   constructor(props) {
     super(props);
 
@@ -39,6 +40,12 @@ class Results extends React.Component {
     }
     return (
       <div>Results</div>
+    )
+  }
+  */
+  render () {
+    return (
+      <div>RESULTS</div>
     )
   }
 }
