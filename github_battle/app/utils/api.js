@@ -60,7 +60,7 @@ function handleError (error) {
 api.battle(['gabrieloarga', 'ovidiucota'])
   .then(function (players) {
     console.log('Winner: ' + players[0].profile.username);
-    console.log('Looser: ' + players[2].profile.username);
+    console.log('Looser: ' + players[1].profile.username);
   });
 */
 
