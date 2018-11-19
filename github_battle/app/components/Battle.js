@@ -16,7 +16,7 @@ class PlayerInput extends React.Component {
   handleChange = (event) => {
     var value = event.target.value;
 
-    this.setState(() => {
+    this.setState( () => {
       return {
         username: value,
       }
@@ -77,7 +77,7 @@ class Battle extends React.Component {
   }
 
   handleSubmit = (id, username) => {
-    this.setState(() => {
+    this.setState( () => {
       var newState = {};
 
       newState[id + 'Name'] = username;
@@ -88,7 +88,7 @@ class Battle extends React.Component {
   }
 
   handleReset = (id) => {
-    this.setState(() => {
+    this.setState( () => {
       var newState = {};
 
       newState[id + 'Name'] = '';
