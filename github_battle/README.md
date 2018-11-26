@@ -4,3 +4,4 @@ Application (Github Battle):
 * Fetches most popular languages
 * Let’s you compare two github users and scores each one based on their activity.
 
+Website url: https://github-battle-50952.firebaseapp.com
