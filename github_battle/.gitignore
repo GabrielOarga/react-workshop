@@ -7,7 +7,7 @@
 
 #Firebase
 firebase-debug.log
-
+.firebase
 #Node & npm
 node_modules
 package-lock.json
