@@ -1,0 +1,21 @@
+#MacOS
+.DS_Store
+
+#VsCode
+/.vscode
+/coverage
+
+#Firebase
+firebase-debug.log
+.firebase
+#Node & npm
+node_modules
+package-lock.json
+npm-debug.log
+
+#Yarn
+yarn.lock
+
+#Build
+dist
+
