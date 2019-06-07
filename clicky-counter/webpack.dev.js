@@ -16,7 +16,10 @@ module.exports = merge(require('./webpack.common.js'), {
   },
   plugins: [
     new HotModuleReplacementPlugin(),
-    new EnvironmentPlugin(['NODE_ENV', 'DEBUG']),
+    new EnvironmentPlugin({
+      NODE_ENV: 'development',
+      DEBUG: false
+    }),
     new HtmlWebpackPlugin()
   ],
   devServer: {
@@ -25,7 +28,7 @@ module.exports = merge(require('./webpack.common.js'), {
     publicPath: '/',
     compress: true,
     open: 'Google Chrome',
-    port: 8080,
+    port: 3000,
     hot: true
   }
 });
