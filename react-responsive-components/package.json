@@ -1,12 +1,51 @@
 {
   "name": "react-responsive-components",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A project dedicated to testing responsive components",
+  "browser": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production",
+    "format": "prettier --write \"src/**/*.js\"",
+    "eslint-fix": "eslint --fix \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielOarga/react-workshop.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "contributors": [
+    "Gabriel Oarga"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/GabrielOarga/react-workshop/issues"
+  },
+  "homepage": "https://github.com/GabrielOarga/react-workshop#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.2.2",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-react": "^7.14.3",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "prettier": "1.18.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
 }
